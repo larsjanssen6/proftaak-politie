@@ -23,3 +23,12 @@ Route::get('/logout', 'Auth\LoginController@logout')
 
 Route::get('/home', 'Home\HomeController@index')
     ->name('home.index');
+
+/*
+|--------------------------------------------------------------------------
+| Stolen cars
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/stolen-cars', 'Cars\StolenCarController@index')
+    ->name('stolen-car.index');

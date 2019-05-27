@@ -4,5 +4,7 @@
 
     <!--Navigation-->
     @include('nav')
+
+    <stolen-cars></stolen-cars>
 @endsection
 
