@@ -1834,6 +1834,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1847,6 +1854,11 @@ __webpack_require__.r(__webpack_exports__);
       var data = _ref.data;
       _this.vehicles = data;
     });
+  },
+  methods: {
+    unStolen: function unStolen() {
+      alert('niet meer gestolen');
+    }
   }
 });
 
@@ -37177,9 +37189,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                " +
+                              "\n                    " +
                                 _vm._s(vehicle.cartracker.id) +
-                                "\n            "
+                                "\n                "
                             )
                           ]
                         ),
@@ -37191,9 +37203,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                " +
+                              "\n                    " +
                                 _vm._s(vehicle.brand) +
-                                "\n            "
+                                "\n                "
                             )
                           ]
                         ),
@@ -37205,9 +37217,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                " +
+                              "\n                    " +
                                 _vm._s(vehicle.fuel_type) +
-                                "\n            "
+                                "\n                "
                             )
                           ]
                         ),
@@ -37219,9 +37231,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                " +
+                              "\n                    " +
                                 _vm._s(vehicle.identification) +
-                                "\n            "
+                                "\n                "
                             )
                           ]
                         ),
@@ -37233,9 +37245,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                " +
+                              "\n                    " +
                                 _vm._s(vehicle.license_plate) +
-                                "\n            "
+                                "\n                "
                             )
                           ]
                         ),
@@ -37247,9 +37259,35 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                " +
+                              "\n                    " +
                                 _vm._s(vehicle.energy_label.label) +
-                                "\n            "
+                                "\n                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "py-4 px-6 border-b border-grey-light"
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.unStolen()
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Niet gestolen\n                    "
+                                )
+                              ]
                             )
                           ]
                         )
@@ -37332,7 +37370,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "flex items-center justify-center p-2" }, [
-      _c("p", [_vm._v("\n                Geen resultaat\n            ")])
+      _c("p", [
+        _vm._v("\n                    Geen resultaat\n                ")
+      ])
     ])
   }
 ]

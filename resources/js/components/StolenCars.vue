@@ -30,40 +30,47 @@
             </thead>
 
             <tbody v-if="vehicles.length > 0">
-            <tr class="hover:bg-blue-lightest cursor-pointer"
-                v-for="vehicle in vehicles">
-                <td class="py-4 px-6 border-b border-grey-light">
-                    {{ vehicle.cartracker.id }}
-                </td>
+                <tr class="hover:bg-blue-lightest cursor-pointer"
+                    v-for="vehicle in vehicles">
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        {{ vehicle.cartracker.id }}
+                    </td>
 
-                <td class="py-4 px-6 border-b border-grey-light">
-                    {{ vehicle.brand }}
-                </td>
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        {{ vehicle.brand }}
+                    </td>
 
-                <td class="py-4 px-6 border-b border-grey-light">
-                    {{ vehicle.fuel_type }}
-                </td>
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        {{ vehicle.fuel_type }}
+                    </td>
 
-                <td class="py-4 px-6 border-b border-grey-light">
-                    {{ vehicle.identification }}
-                </td>
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        {{ vehicle.identification }}
+                    </td>
 
-                <td class="py-4 px-6 border-b border-grey-light">
-                    {{ vehicle.license_plate }}
-                </td>
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        {{ vehicle.license_plate }}
+                    </td>
 
-                <td class="py-4 px-6 border-b border-grey-light">
-                    {{ vehicle.energy_label.label }}
-                </td>
-            </tr>
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        {{ vehicle.energy_label.label }}
+                    </td>
+
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                @click="unStolen()">
+                            Niet gestolen
+                        </button>
+                    </td>
+                </tr>
             </tbody>
 
             <tbody v-else>
-            <tr class="flex items-center justify-center p-2">
-                <p>
-                    Geen resultaat
-                </p>
-            </tr>
+                <tr class="flex items-center justify-center p-2">
+                    <p>
+                        Geen resultaat
+                    </p>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -81,6 +88,12 @@
             axios.get(route('stolen-car.index')).then(({data}) => {
                 this.vehicles = data;
             });
+        },
+
+        methods: {
+            unStolen() {
+                alert('niet meer gestolen');
+            }
         }
     }
 </script>
