@@ -58,7 +58,7 @@
 
                     <td class="py-4 px-6 border-b border-grey-light">
                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                @click="unStolen()">
+                                @click="unStolen(vehicle.id)">
                             Niet gestolen
                         </button>
                     </td>
@@ -91,8 +91,10 @@
         },
 
         methods: {
-            unStolen() {
-                alert('niet meer gestolen');
+            unStolen(id) {
+                axios.get(route('set-unstolen', id)).then((response) => {
+                    window.location.reload();
+                })
             }
         }
     }

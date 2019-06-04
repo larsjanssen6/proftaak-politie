@@ -18,4 +18,30 @@ class StolenCarController extends Controller
 
         return $response->json();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function setStolen($id)
+    {
+        $url = env('HOST_URL') . '/overheid/api/vehicle/stolen/' . $id;
+
+        $response = Zttp::post($url);
+
+        return $response->json();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function setUnstolen($id)
+    {
+        $url = env('HOST_URL') . '/overheid/api/vehicle/unstolen/' . $id;
+
+        $response = Zttp::post($url);
+
+        return $response->json();
+    }
 }
