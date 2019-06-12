@@ -4,8 +4,7 @@
            :scrollable="false"
            height="100%"
            width="100%"
-           @before-open="beforeOpen"
-           @before-close="beforeClose">
+           @before-open="beforeOpen">
 
         <div class="flex flex-col justify-center items-center h-full relative">
             <div class="flex justify-end w-2/3">
@@ -105,10 +104,6 @@
                 axios.get(route('car-location', e.params.id)).then(({data}) => {
                     this.location = data;
                 });
-            },
-
-            beforeClose(e) {
-
             }
         }
     }

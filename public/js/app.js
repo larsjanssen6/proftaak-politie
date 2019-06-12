@@ -1851,7 +1851,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1870,8 +1869,7 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         _this.location = data;
       });
-    },
-    beforeClose: function beforeClose(e) {}
+    }
   }
 });
 
@@ -38058,7 +38056,7 @@ var render = function() {
         height: "100%",
         width: "100%"
       },
-      on: { "before-open": _vm.beforeOpen, "before-close": _vm.beforeClose }
+      on: { "before-open": _vm.beforeOpen }
     },
     [
       _c(
