@@ -47,3 +47,12 @@ Route::get('/set-stolen/{id}', 'Cars\StolenCarController@setStolen')
 
 Route::get('/set-unstolen/{id}', 'Cars\StolenCarController@setUnstolen')
     ->name('set-unstolen');
+
+/*
+|--------------------------------------------------------------------------
+| Car history
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/car-history/{id}', 'Cars\CarHistoryController@show')
+    ->name('car-history');

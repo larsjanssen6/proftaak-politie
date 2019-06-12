@@ -2,35 +2,36 @@
     <div class="w-2/3 mx-auto mt-12">
         <table class="text-left mt-6 bg-white shadow-lg" style="border-collapse:collapse" v-if="vehicles.length > 0">
             <thead>
-            <tr class="cursor-pointer">
-                <th class="py-4 px-6 bg-grey font-sans font-medium uppercase text-sm text-black border-b border-grey-light">
-                    Cartracker id
-                </th>
+                <tr class="cursor-pointer">
+                    <th class="py-4 px-6 bg-grey font-sans font-medium uppercase text-sm text-black border-b border-grey-light">
+                        Cartracker id
+                    </th>
 
-                <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
-                    Brand
-                </th>
+                    <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+                        Brand
+                    </th>
 
-                <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
-                    Brandstof type
-                </th>
+                    <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+                        Brandstof type
+                    </th>
 
-                <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
-                    Identificatie
-                </th>
+                    <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+                        Identificatie
+                    </th>
 
-                <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
-                    Kentekenplaat
-                </th>
+                    <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+                        Kentekenplaat
+                    </th>
 
-                <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
-                    Categorie
-                </th>
-            </tr>
+                    <th class="py-4 px-6 bg-blue font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+                        Categorie
+                    </th>
+                </tr>
             </thead>
 
             <tbody v-if="vehicles.length > 0">
                 <tr class="hover:bg-blue-lightest cursor-pointer"
+                    @click="showHistory(vehicle.id)"
                     v-for="vehicle in vehicles">
                     <td class="py-4 px-6 border-b border-grey-light">
                         {{ vehicle.cartracker.id }}
@@ -73,6 +74,8 @@
                 </tr>
             </tbody>
         </table>
+
+        <car-history-modal></car-history-modal>
     </div>
 </template>
 
@@ -94,7 +97,12 @@
             unStolen(id) {
                 axios.get(route('set-unstolen', id)).then((response) => {
                     window.location.reload();
-                })
+                });
+            },
+
+            showHistory(id) {
+                console.log(id);
+               this.$modal.show('vehicle-owners-modal', { id })
             }
         }
     }

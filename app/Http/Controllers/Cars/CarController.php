@@ -16,7 +16,8 @@ class CarController extends Controller
         $url = env('HOST_URL') . '/overheid/api/vehicle/search';
 
         $response = Zttp::asJson()->post($url, [
-            'licensePlate' => $search
+            'licensePlate' => $search,
+            'stolen' => '0'
         ]);
 
         return $response->json();
