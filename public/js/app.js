@@ -1841,10 +1841,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      owners: []
+      owners: [],
+      location: null
     };
   },
   methods: {
@@ -1853,6 +1865,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get(route('car-history', e.params.id)).then(function (response) {
         _this.owners = response.data;
+      });
+      axios.get(route('car-location', e.params.id)).then(function (_ref) {
+        var data = _ref.data;
+        _this.location = data;
       });
     },
     beforeClose: function beforeClose(e) {}
@@ -2084,7 +2100,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     showHistory: function showHistory(id) {
-      console.log(id);
       this.$modal.show('vehicle-owners-modal', {
         id: id
       });
@@ -38071,6 +38086,41 @@ var render = function() {
           _vm._v(" "),
           _vm.owners.length > 0
             ? _c("div", { staticClass: "w-2/3" }, [
+                _c(
+                  "div",
+                  { staticClass: "border border-grey-light p-4 mt-4 rounded" },
+                  [
+                    _c("strong", [_vm._v("Laatste locatie:")]),
+                    _vm._v(
+                      " \n\n                " +
+                        _vm._s(_vm.location.region) +
+                        "   "
+                    ),
+                    _c("strong", [_vm._v("/")]),
+                    _vm._v(
+                      "  \n                " + _vm._s(_vm.location.road) + "   "
+                    ),
+                    _c("strong", [_vm._v("/")]),
+                    _vm._v(
+                      "  \n                " +
+                        _vm._s(_vm.location.locLat) +
+                        "   "
+                    ),
+                    _c("strong", [_vm._v("/")]),
+                    _vm._v(
+                      "  \n                " +
+                        _vm._s(_vm.location.locLong) +
+                        "   "
+                    ),
+                    _c("strong", [_vm._v("/")]),
+                    _vm._v(
+                      "  \n                " +
+                        _vm._s(_vm.location.date) +
+                        "\n            "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
                 _c(
                   "table",
                   {

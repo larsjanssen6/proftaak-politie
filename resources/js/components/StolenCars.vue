@@ -100,7 +100,6 @@
             },
 
             showHistory(id) {
-                console.log(id);
                this.$modal.show('vehicle-owners-modal', { id })
             }
         }

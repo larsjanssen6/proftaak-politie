@@ -16,6 +16,17 @@
             </div>
 
             <div class="w-2/3" v-if="owners.length > 0">
+
+                <div class="border border-grey-light p-4 mt-4 rounded">
+                    <strong>Laatste locatie:</strong>&nbsp;
+
+                    {{ location.region }} &nbsp; <strong>/</strong> &nbsp;
+                    {{ location.road }} &nbsp; <strong>/</strong> &nbsp;
+                    {{ location.locLat }} &nbsp; <strong>/</strong> &nbsp;
+                    {{ location.locLong }} &nbsp; <strong>/</strong> &nbsp;
+                    {{ location.date }}
+                </div>
+
                 <table class="text-left w-full mt-6 bg-white shadow-lg" style="border-collapse:collapse">
                     <thead>
                         <tr class="cursor-pointer">
@@ -81,6 +92,7 @@
         data() {
             return {
                 owners: [],
+                location: null
             }
         },
 
@@ -88,6 +100,10 @@
             beforeOpen(e) {
                 axios.get(route('car-history', e.params.id)).then((response) => {
                     this.owners = response.data;
+                });
+
+                axios.get(route('car-location', e.params.id)).then(({data}) => {
+                    this.location = data;
                 });
             },
 
