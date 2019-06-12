@@ -31,7 +31,7 @@
 
             <tbody v-if="vehicles.length > 0">
                 <tr class="hover:bg-blue-lightest cursor-pointer"
-                    @click="showHistory(vehicle.id)"
+                    @click.stop="showHistory(vehicle.id)"
                     v-for="vehicle in vehicles">
                     <td class="py-4 px-6 border-b border-grey-light">
                         {{ vehicle.cartracker.id }}
@@ -58,10 +58,9 @@
                     </td>
 
                     <td class="py-4 px-6 border-b border-grey-light">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                @click="unStolen(vehicle.id)">
-                            Niet gestolen
-                        </button>
+                        <a class="underline" @click.stop="unStolen(vehicle.id)">
+                            Markeer gestolen
+                        </a>
                     </td>
                 </tr>
             </tbody>
