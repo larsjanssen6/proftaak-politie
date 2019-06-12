@@ -59,7 +59,7 @@
 
                     <td class="py-4 px-6 border-b border-grey-light">
                         <a class="underline" @click.stop="unStolen(vehicle.id)">
-                            Markeer gestolen
+                            Markeer gevonden
                         </a>
                     </td>
                 </tr>
