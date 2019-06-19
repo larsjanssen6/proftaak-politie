@@ -51401,8 +51401,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/lars/Documents/persoonlijk/code/proftaak-politie/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/lars/Documents/persoonlijk/code/proftaak-politie/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\rickv\Desktop\politie\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rickv\Desktop\politie\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
