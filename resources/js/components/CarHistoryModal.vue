@@ -14,7 +14,7 @@
                 </button>
             </div>
 
-            <div class="w-2/3" v-if="owners.length > 0">
+            <div class="w-2/3" v-if="owners.length > 0 && location">
 
                 <div class="border border-grey-light p-4 mt-4 rounded">
                     <strong>Laatste locatie:</strong>&nbsp;
@@ -101,7 +101,7 @@
                     this.owners = response.data;
                 });
 
-                axios.get(route('car-location', e.params.id)).then(({data}) => {
+                axios.get(route('car-location', e.params.cartrackerId)).then(({data}) => {
                     this.location = data;
                 });
             }

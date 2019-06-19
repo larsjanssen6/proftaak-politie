@@ -31,7 +31,7 @@
 
             <tbody v-if="vehicles.length > 0">
                 <tr class="hover:bg-blue-lightest cursor-pointer"
-                    @click.stop="showHistory(vehicle.id)"
+                    @click.stop="showHistory(vehicle.id, vehicle.cartracker.id)"
                     v-for="vehicle in vehicles">
                     <td class="py-4 px-6 border-b border-grey-light">
                         {{ vehicle.cartracker.id }}
@@ -59,7 +59,7 @@
 
                     <td class="py-4 px-6 border-b border-grey-light">
                         <a class="underline" @click.stop="unStolen(vehicle.id)">
-                            Markeer gestolen
+                            Markeer gevonden
                         </a>
                     </td>
                 </tr>
@@ -99,8 +99,8 @@
                 });
             },
 
-            showHistory(id) {
-               this.$modal.show('vehicle-owners-modal', { id })
+            showHistory(id, cartrackerId) {
+               this.$modal.show('vehicle-owners-modal', { id, cartrackerId})
             }
         }
     }

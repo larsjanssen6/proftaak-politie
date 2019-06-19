@@ -1865,7 +1865,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(route('car-history', e.params.id)).then(function (response) {
         _this.owners = response.data;
       });
-      axios.get(route('car-location', e.params.id)).then(function (_ref) {
+      axios.get(route('car-location', e.params.cartrackerId)).then(function (_ref) {
         var data = _ref.data;
         _this.location = data;
       });
@@ -2097,9 +2097,10 @@ __webpack_require__.r(__webpack_exports__);
         window.location.reload();
       });
     },
-    showHistory: function showHistory(id) {
+    showHistory: function showHistory(id, cartrackerId) {
       this.$modal.show('vehicle-owners-modal', {
-        id: id
+        id: id,
+        cartrackerId: cartrackerId
       });
     }
   }
@@ -38082,7 +38083,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm.owners.length > 0
+          _vm.owners.length > 0 && _vm.location
             ? _c("div", { staticClass: "w-2/3" }, [
                 _c(
                   "div",
@@ -38606,7 +38607,10 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.stopPropagation()
-                              return _vm.showHistory(vehicle.id)
+                              return _vm.showHistory(
+                                vehicle.id,
+                                vehicle.cartracker.id
+                              )
                             }
                           }
                         },
@@ -38721,7 +38725,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                        Markeer gestolen\n                    "
+                                    "\n                        Markeer gevonden\n                    "
                                   )
                                 ]
                               )
